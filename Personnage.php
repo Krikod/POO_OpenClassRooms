@@ -12,6 +12,16 @@ class Personnage
 // On déclare les méthodes
 // Dans la méthode, on accède à l'attribut _* à l'aide de la pseudo-variable $this pour le modifier.
 	
+// Dans le constructeur, les valeurs sont initialisées en appelant les mutateurs correspondant. 
+public function __construct($force, $degats)
+{
+	echo 'Voici le constructeur !';
+	$this->setForce($force);
+	$this->setDegats($degats);
+	$this->_experience = 1;
+}
+
+
 // On exige un objet Personnage en param
 	public function frapper(Personnage $persoAFrapper)
 	{
@@ -62,6 +72,15 @@ class Personnage
 		}
 		$this->_experience = $experience;
 	}
+
+	public function setDegats($degats)
+	{
+		if (!is_int($degats))
+		{
+			trigger_error('Le niveau de dégats d\'un personnage doit être un nombre entier', E_USER_WARNING);
+			return;
+		}
+		$this->_degats = $degats;	}
 
 //LISTE DES ASSESSEURS (GETTERS).
 	public function degats()
