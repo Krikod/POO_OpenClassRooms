@@ -1,4 +1,80 @@
 <?php
+
+class Personnage
+{
+	private $_force; 
+	private $_experience;
+	private $_degats;
+	private $_localisation;
+
+// Déclaration des constantes en rapport avec la force
+	const FORCE_PETITE = 20;
+	const FORCE_MOYENNE = 50;
+	const FORCE_GRANDE = 80;
+
+// Variable static PRIVEE:
+	private static $_texteADire = 'Je vais tous vous tuer !';
+
+public function __construct($forceInitiale)
+{
+	// On assigne la valeur d'un attribut uniquement depuis son setter !
+	$this->setForce($forceInitiale);
+}
+
+public function deplacer()
+{
+
+}
+
+public function frapper()
+{
+
+}
+
+public function gagnerExperience()
+{
+
+}
+
+public function setForce($force)
+{
+	// On vérifie qu'on a bien l'une des CONSTANTES
+	if (in_array($force, [self::FORCE_PETITE, self::FORCE_MOYENNE, self::FORCE_GRANDE]))
+	{
+		$this->_force = $force;
+	}
+}
+// "static" peut être placé avant visibilité "public" !!
+	public static function parler()
+	{
+		echo self::$_texteADire;
+	} 
+}
+
+
+/*
+// EXERCICE
+// Objectif de la classe: afficher le nombre de fois ou la classe a été instanciée
+
+class Compteur
+{
+
+	private static $_compteur = 0;
+
+	public function __construct ()
+	{
+		self::$_compteur++;
+	}
+
+	public static function getCompteur()
+	{
+		return self::$_compteur;
+	}
+}
+*/
+
+/*
+*****************************************************************************************
 // underscore pour chaque nom d'élément privé, majuscule au nom de classe: notation PEAR.
 
 class Personnage
@@ -20,7 +96,6 @@ public function __construct($force, $degats)
 	$this->setDegats($degats);
 	$this->_experience = 1;
 }
-
 
 // On exige un objet Personnage en param
 	public function frapper(Personnage $persoAFrapper)
@@ -110,3 +185,5 @@ public function __construct($force, $degats)
 
 	}
 }
+
+*/

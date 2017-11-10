@@ -1,5 +1,44 @@
 <?php
 
+function chargerClasse($classe)
+{
+	require $classe . '.php';
+}
+include_once 'Personnage.php';
+
+// On envoie une FORCE_MOYENNE en guise de force initiale
+$perso = new Personnage(Personnage::FORCE_MOYENNE);
+
+// Appel de la méthode static depuis un objet, mais même chose de faire (moins bien):
+		// $perso = new Personnage(Personnage::FORCE_MOYENNE);
+		// $perso->parler();
+Personnage::parler();
+
+
+/*
+// EXERCICE
+
+$test1 = new Compteur;
+$test2 = new Compteur;
+$test3 = new Compteur;
+$test4 = new Compteur;
+
+
+echo Compteur::getCompteur();
+
+*/
+
+
+
+
+
+
+
+
+
+
+/*
+
 // include_once 'Personnage.php'; (selon WCS)
 // require 'Personnage.php'; //dans OCR
 
@@ -34,3 +73,4 @@ echo 'Le personnage 1 a ', $perso1->force(), ' de force, tandis que le personage
 echo 'Le personnage 1 a ', $perso1->experience(), ' d\'experience, tandis que le personnage 2 a ', $perso2->experience(), ' d\'experience.<br>';
 echo 'Le personnage 1 a ', $perso1->degats(), ' de degats, tandis que le personnage 2 a ', $perso2->degats(), ' de dégats.<br>';
 
+*/
